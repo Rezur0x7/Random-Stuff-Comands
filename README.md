@@ -1,4 +1,4 @@
-rdate -n <dc-ip> # Sync localtime with DC
+rdate -n \<dc-ip\> # Sync localtime with DC
   
 xfreerdp /v:IP /u:USERNAME /p:PASSWORD +clipboard /dynamic-resolution /drive:/usr/share/windows-resources,share #RDP
 
