@@ -17,3 +17,5 @@ script -qc /bin/bash /dev/null
 Service Ticket Combos - https://adsecurity.org/?p=2011
 
 proxychains net time set -S 172.16.3.5
+
+(get-azvm | select -ExpandProperty networkprofile).NetworkInterfaces.id
