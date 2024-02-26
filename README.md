@@ -42,6 +42,7 @@ Set-AzVMExtension -ResourceGroupName Research -VMName infradminsrv -ExtensionNam
 **Random**
 ```
 xfreerdp /v:IP /u:USERNAME /p:PASSWORD +clipboard /dynamic-resolution /drive:/usr/share/windows-resources,share
+
 script -qc /bin/bash /dev/null
 ```
 **Hide Error in PowerShell**
@@ -51,9 +52,7 @@ $ErrorActionPreference= 'silentlycontinue'
 **Filtering Powershell objects**
 ```
 Get-UserProperty -Properties logoncount | Where logoncount -ne 0
-```
-**Filtering Powershell objects**
-```
+
 Get-ObjectAcl -SamAccountName Control174User –ResolveGUIDs | Where-Object {$_.IdentityReference -like "RDP*"} 
 ```
 **Creds**
