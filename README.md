@@ -19,3 +19,5 @@ Service Ticket Combos - https://adsecurity.org/?p=2011
 proxychains net time set -S 172.16.3.5
 
 (get-azvm | select -ExpandProperty networkprofile).NetworkInterfaces.id ***Expand Property***
+
+$userData = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text";[System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($userData)) 
