@@ -41,6 +41,8 @@ Set-AzVMExtension -ResourceGroupName Research -VMName infradminsrv -ExtensionNam
 
 **Random**
 ```
+Get-AzRoleAssignment | select scope,objectid,DisplayName,objecttype,RoleDefinitionName,RoleDefinitionId | ft
+
 xfreerdp /v:IP /u:USERNAME /p:PASSWORD +clipboard /dynamic-resolution /drive:/usr/share/windows-resources,share
 
 script -qc /bin/bash /dev/null
