@@ -74,6 +74,11 @@ proxychains net time set -S 172.16.3.5
 (get-azvm | select -ExpandProperty networkprofile).NetworkInterfaces.id 
 ```
 
+**SnapLabs Firefox Copy-Paste Support**
+```
+about:config -> dom.events.testing.asyncClipboard
+```
+
 **Kali-Additional-Tools**
 Tools which I clone in a new Kali image
 ```
