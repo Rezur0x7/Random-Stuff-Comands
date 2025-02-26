@@ -47,6 +47,12 @@ xfreerdp /v:IP /u:USERNAME /p:PASSWORD +clipboard /dynamic-resolution /drive:/us
 
 script -qc /bin/bash /dev/null
 ```
+**Python3 VENV**
+```
+python3 -m venv /path/of/venv
+
+source /path/to/venv/bin/activate
+```
 **Hide Error in PowerShell**
 ```
 $ErrorActionPreference= 'silentlycontinue'
