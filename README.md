@@ -52,6 +52,8 @@ script -qc /bin/bash /dev/null
 python3 -m venv /path/of/venv
 
 source /path/to/venv/bin/activate
+
+deactivate (To exit)
 ```
 **Hide Error in PowerShell**
 ```
