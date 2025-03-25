@@ -86,6 +86,10 @@ proxychains net time set -S 172.16.3.5
 ```
 about:config -> dom.events.testing.asyncClipboard
 ```
+**Linux Easy PTTY**
+```
+script -qc /bin/bash /dev/null
+```
 
 **Kali-Additional-Tools**
 Tools which I clone in a new Kali image
