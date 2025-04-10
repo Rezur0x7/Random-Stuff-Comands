@@ -90,25 +90,23 @@ about:config -> dom.events.testing.asyncClipboard
 ```
 script -qc /bin/bash /dev/null
 ```
+**Chisel Forwarding**
 
-**Kali-Additional-Tools**
-Tools which I clone in a new Kali image
+- To get same functionality as local forwards on SSH tunnels.
+Example: Any traffic to port 8001 on Kali gets forwarded to 192.168.0.102:80
+```
+chisel server -p 8000 -reverse (on Kali)
+
+chisel client kali:8000 R:8001:192.168.0.102:80 (on Victim)
+```
+- To get same functionality as remote forwards on SSH tunnels.
+Example: Any traffic to port 8001 on victim gets forwarded to kali:80
+```
+chisel server -p 8000 (on Kali)
+
+chisel client kali:8000 8001:127.0.0.1:80 (on Victim)
+```
+**Kali Recursive 'git pull' on all custom cloned tool repos**
 ```
 cd /opt;for i in \`ls\`;do cd $i;pwd;sudo git pull;cd -;done
-ADTools/
-binaryninja
-ghidra_9.1.2_PUBLIC
-Ghostpack-CompiledBinaries
-GitDorker
-GitTools
-impacket
-Mobile-Security-Framework-MobSF
-ngrok
-privilege-escalation-awesome-scripts-suite
-rengine
-SprayingToolkit
-starkiller
-ysoserial
-XSStrike
-kerbrute
 ```
