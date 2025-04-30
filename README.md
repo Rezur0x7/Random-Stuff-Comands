@@ -110,3 +110,30 @@ chisel client kali:8000 8001:127.0.0.1:80 (on Victim)
 ```
 cd /opt;for i in \`ls\`;do cd $i;pwd;sudo git pull;cd -;done
 ```
+
+**Example /etc/krb5.conf**
+```
+[libdefaults]
+	default_realm = ATHENA.MIT.EDU
+
+[realms]
+# use "kdc = ..." if realm admins haven't put SRV records into DNS
+	ATHENA.MIT.EDU = {
+		admin_server = kerberos.mit.edu
+	}
+	ANDREW.CMU.EDU = {
+		admin_server = kdc-01.andrew.cmu.edu
+	}
+	INLANEFREIGHT.LOCAL = {
+		kdc = dc01.inlanefreight.local
+	}
+
+[domain_realm]
+	inlanefreight.local = DC01.INLANEFREIGHT.LOCAL
+	mit.edu = ATHENA.MIT.EDU
+	csail.mit.edu = CSAIL.MIT.EDU
+	.ucsc.edu = CATS.UCSC.EDU
+
+[logging]
+#	kdc = CONSOLE
+```
